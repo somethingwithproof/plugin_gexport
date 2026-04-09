@@ -362,13 +362,13 @@ function export_edit() {
 	draw_edit_form(
 		array(
 			'config' => array('no_form_tag' => true),
-			'fields' => inject_form_variables($fields_export_edit, (isset($export) ? $export : array()))
+			'fields' => inject_form_variables($fields_export_edit, ($export ?? array()))
 		)
 	);
 
 	html_end_box();
 
-	form_hidden_box('id', (isset($export['id']) ? $export['id'] : '0'), '');
+	form_hidden_box('id', ($export['id'] ?? '0'), '');
 	form_hidden_box('save_component_export', '1', '');
 
 	form_save_button('gexport.php', 'return');
